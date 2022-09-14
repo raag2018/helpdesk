@@ -16,11 +16,24 @@
             $data = Array();
             foreach($datos as $row){
                 $sub_array = array();
-                $sub_array = $row["id"];
-                $sub_array = $row["categoria"];
-                $sub_array = $row["titulo"];
-                $sub_array =  $row["titulo"];
+                $sub_array[] = $row["id"];
+                $sub_array[] = $row["categoria"];
+                $sub_array[] = $row["titulo"];
+                $sub_array[] = "<button type='button' 
+                                        onclick='ver(".$row['id'].")' 
+                                        id='".$row['id']."'
+                                        class='btn btn-outline-primary btn-icon' 
+                                >
+                                    <div><i class='fa fa-edit'></i></div>
+                                </button>";
             }
+            
+            $result = array(
+                "sEcho" => 1,
+                "iTotalRecords" => count[$data],
+                "aaData" => $data
+            );
+            echo json_encode($result);
             break;
     }
 ?>
