@@ -22,6 +22,7 @@
                         t.id_categoria,
                         t.titulo,
                         t.descripcion,
+                        date_format(t.fecha_creacion, '%d/%m/%Y') as fecha_creacion,
                         u.nombre,
                         u.apellido,
                         c.nombre as categoria

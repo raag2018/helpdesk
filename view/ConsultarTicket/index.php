@@ -14,6 +14,7 @@
 						<th>No. Ticket</th>
 						<th>Categoria</th>
 						<th>titulo</th>
+						<th>Fecha</th>
 						<th>editar</th>
 					</thead>
 					<tbody>

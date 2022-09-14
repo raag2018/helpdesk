@@ -19,18 +19,21 @@
                 $sub_array[] = $row["id"];
                 $sub_array[] = $row["categoria"];
                 $sub_array[] = $row["titulo"];
+                $sub_array[] = $row["fecha_creacion"];
                 $sub_array[] = "<button type='button' 
                                         onclick='ver(".$row['id'].")' 
                                         id='".$row['id']."'
-                                        class='btn btn-outline-primary btn-icon' 
+                                        class='btn btn-inline btn-primary btn-sm ledda-button' 
                                 >
                                     <div><i class='fa fa-edit'></i></div>
                                 </button>";
+                $data[] = $sub_array;
             }
-            
+            //"iTotalRecords" => count[$data],
+           // "iTotalDisplayRecords" => count[$data],
             $result = array(
                 "sEcho" => 1,
-                "iTotalRecords" => count[$data],
+                
                 "aaData" => $data
             );
             echo json_encode($result);
