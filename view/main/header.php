@@ -209,6 +209,7 @@
 	                        </div>
                             <div class="dropdown dropdown-typical">
 								<input type="hidden" id='id' name='id' value='<?php echo $_SESSION['id']?>'>
+								<input type="hidden" id='id_rol' name='id_rol' value='<?php echo $_SESSION['id_rol']?>'>
 	                            <a href="#" class="dropdown-toggle no-arr">
 	                                <span class="font-icon glyphicon glyphicon-user"></span>
 									<?php echo $_SESSION['nombre'].' '.$_SESSION['apellido']?>

@@ -28,12 +28,47 @@
     <div class="page-center">
         <div class="page-center-in">
             <div class="container-fluid">
-                <input type="hidden" id='id_rol' name='id_rol' value='2'>
+                
                 <form class="sign-box" method="POST" id="login_form">
                     <div class="sign-avatar">
+                        <input type="hidden" id='id_rol' name='id_rol' value='1'>
                         <img src="public/img/avatar-sign.png" alt="">
                     </div>
                     <header class="sign-title" id='lblTitulo'>Acceso Usuario</header>
+                    <?php
+                        if(isset($_GET['m'])){
+                            switch($_GET["m"]){
+                                case "1":
+                    ?>
+                                    <div class="alert alert-danger" role='alert'>
+                                        <button type='button' class='close'
+                                            data-dismiss='alert' aria-label='Close'>
+                                            <span aria-hidden='true'>&times;</span>
+                                        </button>
+                                        <div class="d-flex aling-items-center justify-center-start">
+                                            <i class="icon ion-ios-checkmark alert-ion tx-32 mg-xs-5 mg-sx-t-0"></i>
+                                            <span>El usuario y/o contraseña son incorectos</span>
+                                        </div>
+                                    </div>
+                    <?php 
+                                     break;
+                                case "2":
+                                    ?>
+                                    <div class="alert alert-warning" role='alert'>
+                                        <button type='button' class='close'
+                                            data-dismiss='alert' aria-label='Close'>
+                                            <span aria-hidden='true'>&times;</span>
+                                        </button>
+                                        <div class="d-flex aling-items-center justify-center-start">
+                                            <i class="icon ion-ios-checkmark alert-ion tx-32 mg-xs-5 mg-sx-t-0"></i>
+                                            <span>Los campos estan vacios</span>
+                                        </div>
+                                    </div>
+                    <?php 
+                                    break;
+                            }
+                        }
+                    ?>
                     <div class="form-group">
                         <input type="email" id="correo" name="correo" class="form-control" placeholder="E-Mail"/>
                     </div>
