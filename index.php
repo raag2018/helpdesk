@@ -13,12 +13,12 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
 	<title>Helpdesk</title>
-	<link href="public/img/favicon.144x144.png" rel="apple-touch-icon" type="image/png" sizes="144x144">
-	<link href="public/img/favicon.114x114.png" rel="apple-touch-icon" type="image/png" sizes="114x114">
-	<link href="public/img/favicon.72x72.png" rel="apple-touch-icon" type="image/png" sizes="72x72">
-	<link href="public/img/favicon.57x57.png" rel="apple-touch-icon" type="image/png">
-	<link href="public/img/favicon.png" rel="icon" type="image/png">
-	<link href="public/img/favicon.ico" rel="shortcut icon">
+	<meta name='description' content='Calidad con visión de futuro'>
+    <meta name='author' content='Universidad Dr. Andres Bello'>
+    <link rel='icon' href='https://www.unab.edu.sv/wp-content/uploads/2016/11/cropped-favicon.ico-32x32.png' sizes='32x32'>
+    <link rel='icon' href='https://www.unab.edu.sv/wp-content/uploads/2016/11/cropped-favicon.ico-192x192.png' sizes='192x192'>
+    <link rel='apple-touch-icon-precomposed' href='https://www.unab.edu.sv/wp-content/uploads/2016/11/cropped-favicon.ico-180x180.png'>
+    <meta name='msapplication-TileImage' content='https://www.unab.edu.sv/wp-content/uploads/2016/11/cropped-favicon.ico-270x270.png'>
     <link rel="stylesheet" href="public/css/separate/pages/login.min.css">
     <link rel="stylesheet" href="public/css/lib/font-awesome/font-awesome.min.css">
     <link rel="stylesheet" href="public/css/lib/bootstrap/bootstrap.min.css">
@@ -28,11 +28,12 @@
     <div class="page-center">
         <div class="page-center-in">
             <div class="container-fluid">
+                <input type="hidden" id='id_rol' name='id_rol' value='2'>
                 <form class="sign-box" method="POST" id="login_form">
                     <div class="sign-avatar">
                         <img src="public/img/avatar-sign.png" alt="">
                     </div>
-                    <header class="sign-title">Acceso</header>
+                    <header class="sign-title" id='lblTitulo'>Acceso Usuario</header>
                     <div class="form-group">
                         <input type="email" id="correo" name="correo" class="form-control" placeholder="E-Mail"/>
                     </div>
@@ -46,6 +47,9 @@
                         </div -->
                         <div class="float-right reset">
                             <a href="reset-password.html">Cambiar Password</a>
+                        </div>
+                        <div class="float-left reset">
+                            <a href="#" id='btnSoporte'>Acceso Soporte</a>
                         </div>
                     </div>
                     <input type="hidden" name="enviar" value="si">
@@ -78,5 +82,6 @@
         });
     </script>
 <script src="public/js/app.js"></script>
+<script src='index.js'></script>
 </body>
 </html>
