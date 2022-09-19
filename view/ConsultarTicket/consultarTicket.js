@@ -3,6 +3,7 @@ function init(){
 
 }
 $(document).ready(function(){
+    let id = $("#id").val();
     tabla = $("#tblTicket").dataTable({
         "aProcesing": true,
         "aServerSide": true,
@@ -20,7 +21,7 @@ $(document).ready(function(){
             url: '../../controller/ticket.php?op=listarTicket',
             type: "POST",
             datatype: 'json',
-            data: {id_usuario: 1},
+            data: {id_usuario: id},
             error: function(e){
                 console.warn(e.responseText);
             }
