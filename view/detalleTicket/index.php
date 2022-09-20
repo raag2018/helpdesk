@@ -33,23 +33,28 @@
 									<p>Uploaded 3 Images to Daily UI Album</p>
 									<ul class="previews">
 										<li>
-											<a class="fancybox" rel="gall-1" href="../../public/img/pic.jpg">																	<img src="http://placehold.it/120x80" alt=""/>
+											<a class="fancybox" rel="gall-1" href="../../public/img/pic.jpg">																	
+												<!--img src="http://placehold.it/120x80" alt=""/-->
 											</a>
 										</li>
 										<li>
-											<a class="fancybox" rel="gall-1" href="../../public/img/pic.jpg">																	<img src="http://placehold.it/120x80" alt=""/>
+											<a class="fancybox" rel="gall-1" href="../../public/img/pic.jpg">															
+												<!--img src="http://placehold.it/120x80" alt=""/-->
 											</a>
 										</li>
 										<li>
-											<a class="fancybox" rel="gall-1" href="../../public/img/pic.jpg">																	<img src="http://placehold.it/120x80" alt=""/>
+											<a class="fancybox" rel="gall-1" href="../../public/img/pic.jpg">																	
+												<!--img src="http://placehold.it/120x80" alt=""/-->
 											</a>
 										</li>
 										<li>
-											<a class="fancybox" rel="gall-1" href="../../public/img/pic.jpg">																	<img src="http://placehold.it/120x80" alt=""/>
+											<a class="fancybox" rel="gall-1" href="../../public/img/pic.jpg">																	
+												<!--img src="http://placehold.it/120x80" alt=""/-->
 											</a>
 										</li>
 										<li>
-											<a class="fancybox" rel="gall-1" href="../../public/img/pic.jpg">																	<img src="http://placehold.it/120x80" alt=""/>
+											<a class="fancybox" rel="gall-1" href="../../public/img/pic.jpg"-->																	
+												<!--img src="http://placehold.it/120x80" alt=""/-->
 											</a>
 										</li>
 									</ul>
@@ -68,7 +73,7 @@
 									<div class="tbl img-comment">
 										<div class="tbl-row">
 											<div class="tbl-cell tbl-cell-img">
-												<img src="http://placehold.it/120x80" alt=""/>
+												<!--img src="http://placehold.it/120x80" alt=""/-->
 											</div>
 											<div class="tbl-cell tbl-cell-txt">
 												«Had a meeting about shopping cart experience, with Isobel Patterson, Josh Weller»
