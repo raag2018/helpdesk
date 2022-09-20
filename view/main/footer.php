@@ -7,3 +7,4 @@
     <script src="../../public/js/app.js"></script>
 	<script src="../../public/js/lib/bootstrap-sweetalert/sweetalert.min.js"></script>
 	<script src="../../public/js/lib/datatables-net/datatables.min.js"></script>
+	<script src="../../public/js/lib/fancybox/jquery.fancybox.pack.js"></script>

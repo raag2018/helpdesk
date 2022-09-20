@@ -13,6 +13,8 @@
     <meta name='msapplication-TileImage' content='https://www.unab.edu.sv/wp-content/uploads/2016/11/cropped-favicon.ico-270x270.png'>
     <link rel="stylesheet" href="../../public/css/lib/summernote/summernote.css"/>
     <link rel="stylesheet" href="../../public/css/separate/pages/editor.min.css">
+    <link rel="stylesheet" href="../../public/css/separate/pages/fancybox.min.css">
+    <link rel="stylesheet" href="../../public/css/separate/pages/activity.min.css">
     <link rel="stylesheet" href="../../public/css/lib/bootstrap-sweetalert/sweetalert.css">
     <link rel="stylesheet" href="../../public/css/separate/vendor/sweet-alert-animations.min.css">
     <link rel="stylesheet" href="../../public/css/lib/font-awesome/font-awesome.min.css">
