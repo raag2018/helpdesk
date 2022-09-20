@@ -19,6 +19,11 @@
                 $sub_array[] = $row["id"];
                 $sub_array[] = $row["categoria"];
                 $sub_array[] = $row["titulo"];
+                if($row["estado"] == 1){
+                    $sub_array[] = "<span class='label label-pill label-success'>Abierto</span>";
+                }else{
+                    $sub_array[] = "<span class='label label-pill label-danger'>Cerrado</span>";
+                }
                 $sub_array[] = $row["fecha_creacion"];
                 $sub_array[] = "<button type='button' 
                                         onclick='ver(".$row['id'].")' 
@@ -33,7 +38,6 @@
            // "iTotalDisplayRecords" => count[$data],
             $result = array(
                 "sEcho" => 1,
-                
                 "aaData" => $data
             );
             echo json_encode($result);

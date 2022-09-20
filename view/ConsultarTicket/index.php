@@ -11,11 +11,12 @@
 			<div class="box-tipical box-tipical-padding">
 				<table class="table table-bordered table-striped table-vcenter js-datatable-full" id='tblTicket'>
 					<thead>
-						<th>No. Ticket</th>
-						<th>Categoria</th>
-						<th>titulo</th>
-						<th>Fecha</th>
-						<th>editar</th>
+						<th style='width:10%;'>No. Ticket</th>
+						<th style='width:15%;'>Categoria</th>
+						<th class='d-none d-sm-table-cell' style='width:25%;'>Titulo</th>
+						<th class='d-none d-sm-table-cell' style='width:5%;'>Estado</th>
+						<th class='d-none d-sm-table-cell' style='width:10%;'>Fecha</th>
+						<th class='d-none d-sm-table-cell' style='width:5%;'>editar</th>
 					</thead>
 					<tbody>
 
