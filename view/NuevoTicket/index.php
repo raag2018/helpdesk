@@ -8,6 +8,19 @@
     <?php require_once("../main/nav.php");?>
 	<div class="page-content">
 		<div class="container-fluid">
+		<header class="section-header">
+				<div class="tbl">
+					<div class="tbl-row">
+						<div class="tbl-cell">
+							<h3>Nuevo Ticket</h3>
+							<ol class="breadcrumb breadcrumb-simple">
+								<li><a href="#">Home</a></li>
+								<li class="active">Nuevo Ticket</li>
+							</ol>
+						</div>
+					</div>
+				</div>
+			</header>
 			<div class="box-typical box-typical-padding">
 				<p>
 					Desde esta ventana podr&aacute; generar nuevos tickets.

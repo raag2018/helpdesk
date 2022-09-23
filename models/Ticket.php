@@ -46,7 +46,7 @@
                         upper(u.nombre) as nombre,
                         upper(u.apellido) as apellido,
                         u.id_rol,
-                        date_format(dt.fecha_creacion, '%H:%m') as hora
+                        date_format(dt.fecha_creacion, '%H:%i %p') as hora
                         FROM detalle_ticket as dt
                         inner join usuario as u on u.id = dt.id_usuario
                         where dt.id_ticket = ?;";
