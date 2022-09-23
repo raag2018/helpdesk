@@ -58,6 +58,7 @@ $(document).ready(function(){
     }).DataTable();
 });
 function ver(id_ticket){
-    console.log(id_ticket);
+    //console.log(id_ticket);
+    window.open("http://localhost/helpdesk/view/detalleTicket/?ID="+id_ticket);
 }
 init();

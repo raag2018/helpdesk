@@ -36,5 +36,24 @@
             $sth->execute();
             return $resultado = $sth->fetchAll();
         }
+        public function detalleTicket($id_ticket){
+            $conectar = parent::conexion();
+            parent::set_names();
+            $sql = " select
+                        dt.id_detalle,
+                        dt.descripcion,
+                        date_format(dt.fecha_creacion,'%d/%m/%Y') as fecha_creacion,
+                        upper(u.nombre) as nombre,
+                        upper(u.apellido) as apellido,
+                        u.id_rol,
+                        date_format(dt.fecha_creacion, '%H:%m') as hora
+                        FROM detalle_ticket as dt
+                        inner join usuario as u on u.id = dt.id_usuario
+                        where dt.id_ticket = ?;";
+            $sth = $conectar->prepare($sql);
+            $sth->bindValue(1, $id_ticket);
+            $sth->execute();
+            return $resultado = $sth->fetchAll();
+        }
     }
 ?>

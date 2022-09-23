@@ -42,5 +42,51 @@
             );
             echo json_encode($result);
             break;
+        case 'listar_detalle':
+            $id_ticket = $_POST["id_ticket"];
+            $datos = $ticket->detalleTicket($id_ticket);
+            foreach($datos as $r){
+            ?>
+                <article class="activity-line-item box-typical">
+					<div class="activity-line-date">
+						<?php echo $r['fecha_creacion'];?>
+					</div>
+					<header class="activity-line-item-header">
+						<div class="activity-line-item-user">
+							<div class="activity-line-item-user-photo">
+								<a href="#">
+									<img src="../../public/img/photo-64-2.jpg" alt="">
+								</a>
+							</div>
+							<div class="activity-line-item-user-name"><?php echo $r['nombre'].' '.$r['apellido'];?></div>
+							<div class="activity-line-item-user-status">
+								<?php 
+									if($r['id_rol'] == 1){
+										echo 'Usuario';
+									}else{
+										echo 'Tecnico';
+									}
+								?></div>
+						</div>
+					</header>
+					<div class="activity-line-action-list">
+						<section class="activity-line-action">
+							<div class="time"><?php echo $r['hora'];?></div>
+							<div class="cont">
+								<div class="cont-in">
+									<p><?php echo $r['descripcion'];?></p>
+									<!--ul class="meta">
+										<li><a href="#">5 Comments</a></li>
+										<li><a href="#">5 Likes</a></li>
+									</ul-->
+								</div>
+							</div>
+						</section><!--.activity-line-action-->
+					</div><!--.activity-line-action-list-->
+				</article><!--.activity-line-item-->
+            <?php
+            }
+            break;
+
     }
 ?>
