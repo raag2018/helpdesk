@@ -49,7 +49,24 @@
         	<section class="activity-line" id='lbldetalle'>
 				
 			</section><!--.activity-line-->
-			
+			<div class="box-typical box-typical-padding">
+				<p>
+					Ingrese su consulta
+				</p>
+				<div class="row">
+					<div class="col-lg-12">
+						<fieldset class="form-group">
+							<label class="form-label" for="exampleInputPassword1">Descripci&oacute;n</label>
+							<div class="summernote-theme-1">
+								<textarea class="summernote" name="descripcion_detalle" id='descripcion_detalle'></textarea>
+							</div>
+							<div class="col-lg-12 text-center">
+								<button type='submit' name='action' value='Add' class="btn btn-rounded btn-inline btn-primary">Guardar</button>
+							</div>
+						</fieldset>
+					</div>
+				</div><!--.row-->
+			</div><!--.box-typical-->
 		</div><!--.container-fluid-->
 	</div><!--.page-content-->
 <?php 

@@ -24,6 +24,22 @@ $(document).ready(function(){
         //console.log(data);
         $("#lbldetalle").html(data);
     }); 
-
+    $('#descripcion_detalle').summernote({
+        toolbar: [
+            // [groupName, [list of button]]
+            ['style', ['bold', 'italic', 'underline', 'clear']],
+            ['fontsize', ['fontsize']],
+            ['color', ['color']],
+            ['para', ['ul', 'ol', 'paragraph']],
+            ['height', ['height']]
+          ],
+          popover: {
+            air: [
+              ['color', ['color']],
+              ['font', ['bold', 'underline', 'clear']]
+            ]
+          },
+        height: 150
+    });
 });
 init();
