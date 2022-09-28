@@ -13,9 +13,9 @@
 					<div class="tbl-row">
 						<div class="tbl-cell">
 							<h3>Detalle Ticket</h3>
-							<span class="label label-pill label-danger">Cerrado</span>
-							<span class="label label-pill label-primary">Nombre Usuario</span>
-							<span class="label label-pill label-default">fecha creacion</span>
+							<span class="label label-pill label-danger" id='lblEstado'>Cerrado</span>
+							<span class="label label-pill label-primary" id='lblUsuario'>Nombre Usuario</span>
+							<span class="label label-pill label-default" id='lblFecha'>fecha creacion</span>
 							<ol class="breadcrumb breadcrumb-simple">
 								<li><a href="#">Home</a></li>
 								<li class="active">Detalle Ticket</li>
@@ -38,7 +38,7 @@
 							<input type="text" class="form-control" id='titulo' name='titulo' readonly>
 						</fieldset>
 					</div>
-					<div class="col-lg-6">
+					<div class="col-lg-12">
 						<fieldset class="form-gruop">
 							<label for="descripcion" class="form-label semibold">Descripcion</label>
 							<input type="text" class="form-control" id='descripcion' name='descripcion' readonly>
@@ -61,7 +61,8 @@
 								<textarea class="summernote" name="descripcion_detalle" id='descripcion_detalle'></textarea>
 							</div>
 							<div class="col-lg-12 text-center">
-								<button type='submit' name='action' value='Add' class="btn btn-rounded btn-inline btn-primary">Guardar</button>
+								<button type='button' name='action' class="btn btn-rounded btn-inline btn-primary" id='btnEnviar'>Enviar</button>
+								<button type='button' name='action' class="btn btn-rounded btn-inline btn-secondary" id='btnCerrar'>Cerrar Ticket</button>
 							</div>
 						</fieldset>
 					</div>

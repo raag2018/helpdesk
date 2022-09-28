@@ -87,6 +87,30 @@
             <?php
             }
             break;
-
+        case "mostrar":
+            $id_ticket = $_POST["id_ticket"];
+            $datos = $ticket->listar_ticket_id($id_ticket);
+            if(is_array($datos) == true && count($datos) > 0){
+                foreach($datos as $row){
+                    $output['id_ticket'] = $row['id_ticket'];
+                    $output['id_usuario'] = $row['id_usuario'];
+                    $output['id_categoria'] = $row['id_categoria'];
+                    $output['titulo'] = $row['titulo'];
+                    $output['descripcion'] = $row['descripcion'];
+                    $output['fecha_creacion'] = $row['fecha_creacion'];
+                    $output['nombre'] = $row['nombre'];
+                    $output['apellido'] = $row['apellido'];
+                    $output['categoria'] = $row['categoria'];
+                    $output['estado'] = $row['estado'];
+                }
+                echo json_encode($output);
+            }
+            break;
+        case "insert_detalle":
+            $id_usuario = $_POST["id_usuario"];
+            $id_ticket = $_POST["id_ticket"];
+            $descripcion = $_POST["descripcion"];
+            $datos = $ticket->insertTicketDetalle($id_ticket,$id_usuario,$descripcion);
+            break;
     }
 ?>

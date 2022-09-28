@@ -12,7 +12,17 @@
             $sth->execute();
             return $resultado = $sth->fetchAll();
         }
-       
+        public function insertTicketDetalle($id_ticket,$id_usuario, $descripcion){
+            $conectar = parent::conexion();
+            parent::set_names();
+            $sql = "insert into detalle_ticket(id_ticket,id_usuario, descripcion) values(?,?,?);";
+            $sth = $conectar->prepare($sql);
+            $sth->bindValue(1, $id_ticket);
+			$sth->bindValue(2, $id_usuario);
+			$sth->bindValue(3, $descripcion);
+            $sth->execute();
+            return $resultado = $sth->fetchAll();
+        }
         public function listarTicket($id_usuario){
             $conectar = parent::conexion();
             parent::set_names();
@@ -55,5 +65,29 @@
             $sth->execute();
             return $resultado = $sth->fetchAll();
         }
-    }
+    
+        public function listar_ticket_id($id_ticket){
+            $conectar = parent::conexion();
+            parent::set_names();
+            $sql = " select
+                        t.id as id_ticket,
+                        u.id as id_usuario,
+                        c.id as id_categoria,
+                        t.titulo,
+                        t.descripcion,
+                        t.estado,
+                        date_format(t.fecha_creacion,'%d/%m/%Y') as fecha_creacion,
+                        u.nombre,
+                        u.apellido,
+                        c.nombre as categoria
+                        FROM ticket as t
+                        inner join usuario as u on u.id = t.id_usuario
+                        inner join categoria as c on c.id = t.id_categoria
+                        where t.id = ?;";
+            $sth = $conectar->prepare($sql);
+            $sth->bindValue(1, $id_ticket);
+            $sth->execute();
+            return $resultado = $sth->fetchAll();
+        }
+}
 ?>

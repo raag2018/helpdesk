@@ -5,11 +5,26 @@ function init(){
 }
 $(document).ready(function() {
     $('#descripcion').summernote({
+        lang: 'es-ES',
+       /* toolbar: [
+            // [groupName, [list of button]]
+            ['style', ['bold', 'italic', 'underline', 'clear']],
+            ['fontsize', ['fontsize']],
+            ['color', ['color']],
+            ['para', ['ul', 'ol', 'paragraph']],
+            ['height', ['height']]
+          ],
+          popover: {
+            air: [
+              ['color', ['color']],
+              ['font', ['bold', 'underline', 'clear']]
+            ]
+          },*/
         height: 150
     });
     $.post("../../controller/categoria.php?op=cbx_categoria", function(data, status){
         $("#id_categoria").html(data);
-        console.log(data);
+        //console.log(data);
     });
     
 });

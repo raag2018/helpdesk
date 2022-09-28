@@ -4,6 +4,7 @@ function init(){
 }
 $(document).ready(function(){
     let id = $("#id").val();
+    console.log(id);
     tabla = $("#tblTicket").dataTable({
         "aProcesing": true,
         "aServerSide": true,
@@ -22,7 +23,7 @@ $(document).ready(function(){
             type: "POST",
             datatype: 'json',
             data: {id_usuario: id},
-            error: function(e){
+            error: function(e){         
                 console.warn(e.responseText);
             }
         },
