@@ -40,7 +40,7 @@
                         FROM ticket as t
                         inner join usuario as u on u.id = t.id_usuario
                         inner join categoria as c on c.id = t.id_categoria
-                        where t.estado = 1 and u.id = ?;";
+                        where  u.id = ?;";
             $sth = $conectar->prepare($sql);
             $sth->bindValue(1, $id_usuario);
             $sth->execute();
@@ -88,6 +88,14 @@
             $sth->bindValue(1, $id_ticket);
             $sth->execute();
             return $resultado = $sth->fetchAll();
+        }
+        public function update_ticket($id_ticket){
+            $conectar = parent::conexion();
+            parent::set_names();
+            $sql = "UPDATE ticket SET estado = 2, fecha_cierre = now() WHERE id =?;";
+            $sth = $conectar->prepare($sql);
+            $sth->bindValue(1, $id_ticket);
+            return   $sth->execute();
         }
 }
 ?>

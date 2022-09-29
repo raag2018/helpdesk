@@ -10,6 +10,10 @@
             $descripcion = $_POST["descripcion"];
             $datos = $ticket->insertTicket($id_usuario, $id_categoria, $titulo, $descripcion);
             break;
+        case "update":
+                $id_ticket = $_POST["id_ticket"];
+                $datos = $ticket->update_ticket($id_ticket);
+                break;
         case "listarTicket":
             $id_usuario = $_POST["id_usuario"];
             $datos = $ticket->listarTicket($id_usuario);
@@ -21,7 +25,7 @@
                 $sub_array[] = $row["titulo"];
                 if($row["estado"] == 1){
                     $sub_array[] = "<span class='label label-pill label-success'>Abierto</span>";
-                }else{
+                }else if($row["estado"] == 2){
                     $sub_array[] = "<span class='label label-pill label-danger'>Cerrado</span>";
                 }
                 $sub_array[] = $row["fecha_creacion"];

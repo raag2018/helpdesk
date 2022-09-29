@@ -36,7 +36,7 @@ $(document).ready(function(){
         $("#lblEstado").text('Abierto');
         $("#lblEstado").removeClass('label-danger');
         $("#lblEstado").addClass('label-success');
-      }else{
+      }else if(obj.estado === '2'){
         $("#lblEstado").text('Cerrado');
       }
       $("#lblUsuario").text(obj.nombre+' '+obj.apellido);
@@ -126,13 +126,8 @@ $(document).ready(function(){
     });
     $(document).on('click','#btnCerrar', function(e){
       e.preventDefault();
-      let id_usuario = $("#id").val();
-      let descripcion = $("#descripcion_detalle").val();
       let data = { 
-                    "id_ticket":id_ticket,
-                    "id_usuario":id_usuario,
-                    "descripcion":descripcion,
-                    "estado": 2};
+                    "id_ticket":id_ticket};
       swal({
         title: "estas seguro de cerrar el ticket?",
         text: "El ticket se cerrara",
@@ -160,7 +155,7 @@ $(document).ready(function(){
                   , 'warning');
           }else{
             $.ajax({
-                url: '../../controller/ticket.php?op=insert_detalle',
+                url: '../../controller/ticket.php?op=update',
                 method: 'post',
                 data: data,
                 success: function(datos){
