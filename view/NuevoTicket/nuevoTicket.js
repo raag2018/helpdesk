@@ -31,22 +31,30 @@ $(document).ready(function() {
 function guardarTicket(e){
     e.preventDefault();
     //console.log($("#ticketForm").serrializeArray());
-    let formData = new FormData($("#ticketForm")[0]);
-    $.ajax({
-        url: '../../controller/ticket.php?op=insert',
-        method: 'post',
-        data: formData,
-        contentType: false,
-        processData: false,
-        success: function(datos){
-            $("#titulo").val("");
-            $("#descripcion").summernote("reset");
-            swal(
-                 "Correcto",
-                 "Registrado correctamente"
-            , 'success');
-            console.log(datos);
-        }
-    });
+    if($("#descripcion").summernote("isEmpty") || $("#descripcion").val() === ""){
+        swal(
+            "Error",
+            "Por favor agregue una descripcion del ticket"
+       , 'warning');
+    }else{
+        let formData = new FormData($("#ticketForm")[0]);
+        $.ajax({
+            url: '../../controller/ticket.php?op=insert',
+            method: 'post',
+            data: formData,
+            contentType: false,
+            processData: false,
+            success: function(datos){
+                $("#titulo").val("");
+                $("#descripcion").summernote("reset");
+                swal(
+                     "Correcto",
+                     "Registrado correctamente"
+                , 'success');
+                console.log(datos);
+            }
+        });
+    }
+   
 }
 init();

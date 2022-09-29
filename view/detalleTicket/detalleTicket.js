@@ -102,21 +102,27 @@ $(document).ready(function(){
                       "id_ticket":id_ticket,
                       "id_usuario":id_usuario,
                       "descripcion":descripcion};
-        $.ajax({
-            url: '../../controller/ticket.php?op=insert_detalle',
-            method: 'post',
-            data: data,
-            success: function(datos){
-              detalle_ticket(id_ticket);
-                $("#descripcion_detalle").summernote("reset");
-                swal(
-                     "Correcto",
-                     "Registrado correctamente"
-                , 'success');
-                console.log(datos);
-            }
-        });
-      
+        if($("#descripcion_detalle").summernote("isEmpty") || $("#descripcion_detalle").val() === ""){
+              swal(
+                    "Error",
+                    "Por favor agregue una descripcion del ticket"
+                    , 'warning');
+        }else{
+          $.ajax({
+              url: '../../controller/ticket.php?op=insert_detalle',
+              method: 'post',
+              data: data,
+              success: function(datos){
+                detalle_ticket(id_ticket);
+                  $("#descripcion_detalle").summernote("reset");
+                  swal(
+                      "Correcto",
+                      "Registrado correctamente"
+                  , 'success');
+                  console.log(datos);
+              }
+          });
+        }
     });
     $(document).on('click','#btnCerrar', function(e){
       e.preventDefault();
@@ -127,22 +133,57 @@ $(document).ready(function(){
                     "id_usuario":id_usuario,
                     "descripcion":descripcion,
                     "estado": 2};
-      $.ajax({
-          url: '../../controller/ticket.php?op=insert_detalle',
-          method: 'post',
-          data: data,
-          success: function(datos){
-              $("#descripcion_detalle").summernote("reset");
-              swal(
-                   "Correcto",
-                   "Registrado correctamente"
-              , 'success');
-              console.log(datos);
-              setTimeout(() => {
-                location.reload();
-              }, 1500)
+      swal({
+        title: "estas seguro de cerrar el ticket?",
+        text: "El ticket se cerrara",
+        type: "warning",
+        showCancelButton: true,
+        confirmButtonClass: "btn-success",
+        confirmButtonText: "Si, cerrar ticket",
+        cancelButtonText: "No",
+        cancelButtonClass: "btn-danger",
+        closeOnConfirm: false,
+        closeOnCancel: false
+      },
+      function(isConfirm){
+        if(isConfirm){
+          swal({
+            title: "Cerrando ticket",
+            text: "El ticket se cerrara",
+            type: "success",
+            confirmButtonClass: "btn-success"
+          });
+          if($("#descripcion_detalle").summernote("isEmpty") || $("#descripcion_detalle").val() === ""){
+            swal(
+                  "Error",
+                  "Por favor agregue una descripcion del ticket"
+                  , 'warning');
+          }else{
+            $.ajax({
+                url: '../../controller/ticket.php?op=insert_detalle',
+                method: 'post',
+                data: data,
+                success: function(datos){
+                  detalle_ticket(id_ticket);
+                    $("#descripcion_detalle").summernote("reset");
+                    swal(
+                        "Correcto",
+                        "Registrado correctamente"
+                    , 'success');
+                    console.log(datos);
+                }
+            });
           }
+        }else{
+          swal({
+            title: "Cancelado",
+            text: "Se cancelo el cierre del ticket",
+            type: "error",
+            confirmButtonClass: "btn-danger"
+          });
+        }
       });
+     
     
   });
 });
