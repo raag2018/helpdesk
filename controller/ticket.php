@@ -11,9 +11,12 @@
             $datos = $ticket->insertTicket($id_usuario, $id_categoria, $titulo, $descripcion);
             break;
         case "update":
-                $id_ticket = $_POST["id_ticket"];
-                $datos = $ticket->update_ticket($id_ticket);
-                break;
+            $id_usuario = $_POST["id_usuario"];
+            $id_ticket = $_POST["id_ticket"];
+            $descripcion = $_POST["descripcion"];
+            $datos = $ticket->insertTicketDetalle($id_ticket,$id_usuario,$descripcion);
+            $datos = $ticket->update_ticket($id_ticket);
+            break;
         case "listarTicket":
             $id_usuario = $_POST["id_usuario"];
             $datos = $ticket->listarTicket($id_usuario);

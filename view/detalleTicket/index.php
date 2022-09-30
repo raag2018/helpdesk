@@ -49,7 +49,7 @@
         	<section class="activity-line" id='lbldetalle'>
 				
 			</section><!--.activity-line-->
-			<div class="box-typical box-typical-padding">
+			<div class="box-typical box-typical-padding" id='form_detalle'>
 				<p>
 					Ingrese su consulta
 				</p>

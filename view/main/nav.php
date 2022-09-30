@@ -41,6 +41,12 @@
 						</a>
 					</li>
 					<li class="primary">
+						<a href="..\NuevoTicket\">
+							<i class="font-icon glyphicon glyphicon-th"></i>
+							<span class="lbl">Usuarios</span>
+						</a>
+					</li>
+					<li class="primary">
 						<a href="..\ConsultarTicket\">
 							<i class="font-icon glyphicon glyphicon-th"></i>
 							<span class="lbl">Consultar Ticket</span>

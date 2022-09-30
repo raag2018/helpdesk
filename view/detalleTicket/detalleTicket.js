@@ -27,25 +27,32 @@ $(document).ready(function(){
           $("#lbldetalle").html(data);
       }); 
     }
-   detalle_ticket(id_ticket);
-    $.post("../../controller/ticket.php?op=mostrar",{id_ticket: id_ticket}, function(data){
-      let obj = JSON.parse(data);
-      //console.log(obj);
-      //console.warn(obj.estado);
-      if(obj.estado === '1'){
-        $("#lblEstado").text('Abierto');
-        $("#lblEstado").removeClass('label-danger');
-        $("#lblEstado").addClass('label-success');
-      }else if(obj.estado === '2'){
-        $("#lblEstado").text('Cerrado');
-      }
-      $("#lblUsuario").text(obj.nombre+' '+obj.apellido);
-      $("#lblFecha").text(obj.fecha_creacion);
-      $("#categoria").val(obj.categoria);
-      $("#titulo").val(obj.titulo);
-      $("#descripcion").summernote('code',obj.descripcion);
-      //$("#lbldetalle").html(data);
-    }); 
+    const estado_ticket = (id_ticket) => { 
+      $.post("../../controller/ticket.php?op=mostrar",{id_ticket: id_ticket}, function(data){
+        let obj = JSON.parse(data);
+        //console.log(obj);
+        //console.warn(obj.estado);
+        if(obj.estado === '1'){
+          $("#lblEstado").text('Abierto');
+          $("#lblEstado").removeClass('label-danger');
+          $("#lblEstado").addClass('label-success');
+        }else if(obj.estado === '2'){
+          $("#lblEstado").text('Cerrado');
+          $("#form_detalle").hide();
+          $("#lblEstado").removeClass('label-success');
+          $("#lblEstado").addClass('label-danger');
+        }
+        $("#lblUsuario").text(obj.nombre+' '+obj.apellido);
+        $("#lblFecha").text(obj.fecha_creacion);
+        $("#categoria").val(obj.categoria);
+        $("#titulo").val(obj.titulo);
+        $("#descripcion").summernote('code',obj.descripcion);
+        //$("#lbldetalle").html(data);    
+      }); 
+    }
+    detalle_ticket(id_ticket);
+   estado_ticket(id_ticket);
+
     $('#descripcion').summernote({
         lang: 'es-ES',
        /* toolbar: [
@@ -126,8 +133,12 @@ $(document).ready(function(){
     });
     $(document).on('click','#btnCerrar', function(e){
       e.preventDefault();
+      let id_usuario = $("#id").val();
+      let descripcion = $("#descripcion_detalle").val();
       let data = { 
-                    "id_ticket":id_ticket};
+        "id_ticket":id_ticket,
+        "id_usuario":id_usuario,
+        "descripcion":descripcion};
       swal({
         title: "estas seguro de cerrar el ticket?",
         text: "El ticket se cerrara",
@@ -151,7 +162,7 @@ $(document).ready(function(){
           if($("#descripcion_detalle").summernote("isEmpty") || $("#descripcion_detalle").val() === ""){
             swal(
                   "Error",
-                  "Por favor agregue una descripcion del ticket"
+                  "Por favor agregar un comentario para cerrar el ticket"
                   , 'warning');
           }else{
             $.ajax({
@@ -160,6 +171,7 @@ $(document).ready(function(){
                 data: data,
                 success: function(datos){
                   detalle_ticket(id_ticket);
+                  estado_ticket(id_ticket);
                     $("#descripcion_detalle").summernote("reset");
                     swal(
                         "Correcto",
